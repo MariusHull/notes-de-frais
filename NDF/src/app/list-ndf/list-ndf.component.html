@@ -1,0 +1,34 @@
+
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Mes notes de frais</h3>
+    </div>
+
+      <table class="table table-striped">
+        <tr>
+          <th>Motif</th>
+          <th>Id</th>
+          <th>Date</th>
+          <th>Montant</th>
+          <th>Devise</th>  
+        </tr>
+
+        <tr class="notelist"
+          *ngFor="let note of notes">
+          <td><a routerLink="/detail/{{note._id}}">{{note.title}}</a></td>
+          <td>{{note._id}}</td>
+          <td>{{note.date}}</td>
+          <td>{{note.amount}}</td>
+          <td>{{note.currency}}</td>
+        </tr>
+      </table>
+
+
+
+  </div>
+
+
+
+

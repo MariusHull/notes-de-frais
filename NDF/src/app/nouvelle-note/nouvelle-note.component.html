@@ -1,0 +1,58 @@
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Nouvelle note</h3>
+    </div>
+    <div class="panel-body">
+      
+      <form #noteForm="ngForm">
+        <div class="form-group">
+          <label for="InputTitle">Titre</label>
+          <input type="text" class="form-control" id="InputTitle" placeholder="Titre" required [(ngModel)]="newNote.title" name="title">
+        </div>
+
+        <div class="row">
+        <form class="form-inline">
+          <div class="col-xs-6 col-sm-4">
+            <div class="form-group col-lg-3">
+              <label for="InputAmount">Montant </label>
+            </div>
+            <div class="form-group col-lg-4">
+              <input type="number" class="form-control" id="InputAmount" placeholder="0.00" required [(ngModel)]="newNote.amount" name="amount">
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-4">
+            <div class="form-group col-lg-3">
+              <label for="InputCurrency">Devise </label>
+            </div>
+            <div class="form-group col-lg-4">
+              <input type="text" class="form-control" id="InputCurrency" placeholder="Devise" required [(ngModel)]="newNote.currency" name="currency">
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-4">
+            <div class="form-group col-lg-3">
+              <label for="InputDate">Date de facturation </label>
+            </div>
+            <div class="form-group col-lg-4">
+              <input type="date" class="form-control" id="InputDate" required [(ngModel)]="newNote.date" name="date">
+            </div>
+          </div>
+        </form>
+        </div>
+
+        <div class="form-group">
+          <label for="InputDetails">Remarques sur la note</label>
+          <textarea class="form-control" id="InputDetails" rows="5" placeholder="Description" required [(ngModel)]="newNote.detail" name="detail"></textarea>
+        </div>
+
+
+      </form>
+
+    </div>
+    <div class="panel-footer">
+      <button type="button" class="btn btn-primary" 
+      (click)="addNote()">
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Valider la note
+      </button>
+    </div>
+  </div>
