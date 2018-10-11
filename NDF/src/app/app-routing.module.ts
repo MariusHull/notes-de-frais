@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {Routes} from '@angular/router';
+import { AuthGuardService } from './auth-guard.service';
 
 
 
@@ -13,16 +14,22 @@ import { RouterModule } from '../../node_modules/@angular/router';
 import { NouvelleNoteComponent } from './nouvelle-note/nouvelle-note.component';
 import { NoteModifComponent } from './note-modif/note-modif.component';
 import { LogPageComponent } from './log-page/log-page.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 
 
 
 //Declaration of all the routes of the app
 const appRoutes: Routes = [
-  { path: 'home', component: LogPageComponent },
+  { path: 'home', component: HomePageComponent },
 
-  { path: 'newn', component: NouvelleNoteComponent },
+  { path: 'newn', component: NouvelleNoteComponent, canActivate: [AuthGuardService] },
 
+
+  { path: 'login', component: LoginComponent },
+
+  { path: 'register', component: RegisterComponent },
 
   {
     path: 'list',

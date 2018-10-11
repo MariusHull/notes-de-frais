@@ -17,12 +17,9 @@
         <li> <a routerLink="/newn" routerLinkActive="yes"> Nouvelle note </a></li>
         <!--PENSER A RETIRER LE LIEN EN PROD-->
         <li> <a routerLink="/essai" routerLinkActive="yes"> PAGE 404 </a></li>
-        <!--<li>
-          <a *ngIf="!authService.isLoggedIn" (click)="authService.login()">Log In</a>
-        </li>
-        <li>
-          <a *ngIf="authService.isLoggedIn" (click)="authService.logout()">Log Out</a>
-        </li>-->
+        <li *ngIf="!auth.isLoggedIn()"><a routerLink="/login">Sign in</a></li>
+        <li *ngIf="auth.isLoggedIn()"><a routerLink="/profile">{{ auth.getUserDetails()?.name }}</a></li>
+        <li *ngIf="auth.isLoggedIn()"><a (click)="auth.logout()">Logout</a></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>

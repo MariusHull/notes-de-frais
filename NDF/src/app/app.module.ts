@@ -26,6 +26,8 @@ import { NoteDetailComponent } from './note-detail/note-detail.component';
 import { NouvelleNoteComponent } from './nouvelle-note/nouvelle-note.component';
 import { NoteModifComponent } from './note-modif/note-modif.component';
 import { LogPageComponent } from './log-page/log-page.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -53,7 +55,9 @@ const appRoutes: Routes = [
     NoteDetailComponent,
     NouvelleNoteComponent,
     NoteModifComponent,
-    LogPageComponent
+    LogPageComponent,
+    RegisterComponent,
+    LoginComponent
   ],
 
   imports: [

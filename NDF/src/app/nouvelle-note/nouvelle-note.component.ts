@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NoteService } from '../note.service';
 import { Note } from '../note';
 import { Location } from '@angular/common';
+import { AuthentificationService, UserDetails } from '../authentification.service';
 
 @Component({
   selector: 'app-nouvelle-note',
@@ -9,6 +10,8 @@ import { Location } from '@angular/common';
   styleUrls: ['./nouvelle-note.component.css']
 })
 export class NouvelleNoteComponent implements OnInit {
+  details: UserDetails;
+
   newNote: Note = {
     _id: undefined,
       title: "",
@@ -35,9 +38,17 @@ export class NouvelleNoteComponent implements OnInit {
 
 
   constructor(private noteService: NoteService,
-    private location: Location) { }
+    private location: Location,
+    private auth: AuthentificationService) { }
 
   ngOnInit() {
+    /*
+    this.auth.profile().subscribe(user => {
+      this.details = user;
+    }, (err) => {
+      console.error(err);
+    });
+    */
   }
 
 }
