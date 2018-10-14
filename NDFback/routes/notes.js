@@ -7,19 +7,7 @@ const jwt = require('express-jwt');
 const jwks = require('jwks-rsa');
 
 
-//We are going to implement a JWT middleware that will ensure the validity of our token. We'll require each protected route to have a valid access_token sent in the Authorization header
-/*const authCheck = jwt({
-  secret: jwks.expressJwtSecret({
-        cache: true,
-        rateLimit: true,
-        jwksRequestsPerMinute: 5,
-        jwksUri: "https://rushull.eu.auth0.com/.well-known/jwks.json"
-    }),
-    // This is the identifier we set when we created the API
-    audience: 'http://localhost:3000',
-    issuer: "rushull.eu.auth0.com", // e.g., you.auth0.com
-    algorithms: ['RS256']
-});*/
+
 
 /* GET ALL NOTES */
 router.get('/', function(req, res, next) {

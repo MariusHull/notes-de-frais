@@ -31,6 +31,7 @@ export interface TokenPayload {
 })
 export class AuthentificationService {
   private token : string;
+  private authUrl: string = 'http://localhost:3000/';
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -92,9 +93,9 @@ export class AuthentificationService {
     let base;
   
     if (method === 'post') {
-      base = this.http.post(`/api/${type}`, user);
+      base = this.http.post(this.authUrl+`${type}`, user);
     } else {
-      base = this.http.get(`/api/${type}`, { headers: { Authorization: `Bearer ${this.getToken()}` }});
+      base = this.http.get(this.authUrl+`${type}`, { headers: { Authorization: `Bearer ${this.getToken()}` }});
     }
   
     const request = base.pipe(
@@ -109,7 +110,7 @@ export class AuthentificationService {
     return request;
   }
 
-  
+
   public register(user: TokenPayload): Observable<any> {
     return this.request('post', 'register', user);
   }
