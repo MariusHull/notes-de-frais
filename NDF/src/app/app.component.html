@@ -17,8 +17,20 @@
         <!--PENSER A RETIRER LE LIEN EN PROD-->
         <!--li> <a routerLink="/essai" routerLinkActive="yes"> PAGE 404 </a></li-->
         <li *ngIf="!auth.isLoggedIn()"><a routerLink="/login">Sign in</a></li>
-        <li *ngIf="auth.isLoggedIn()"><a routerLink="/profile">{{ auth.getUserDetails()?.name }}</a></li>
         <li *ngIf="auth.isLoggedIn()"><a (click)="auth.logout()">Logout</a></li>
+        <li *ngIf="auth.isLoggedIn()" class="dropdown">
+          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{ auth.getUserDetails()?.name }}
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li> <a routerLink="/admin"> Interface Administrateur </a></li>
+            <li> <a routerLink="/profile"> Réglages du compte </a></li>
+            <li><a href="#">Sign in</a></li>
+            <li class="divider"></li>
+            <li><a href="#" (click)="auth.logout()">Log Out</a></li>
+          </ul>
+        </li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -26,10 +38,8 @@
 
 <div class="container">
 
-  <div class="starter-template">
-    <h1>Bootstrap starter template</h1>
-    <p class="lead">Developpement en cours<br> Affichage des features. </p>
-  </div>
+
+  
   <router-outlet></router-outlet>
 </div><!-- /.container -->
 

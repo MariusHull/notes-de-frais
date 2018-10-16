@@ -31,6 +31,7 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AdminRootComponent } from './admin-root/admin-root.component';
 import { ListUsersComponent } from './list-users/list-users.component';
+import { ProfileModifComponent } from './profile-modif/profile-modif.component';
 
 
 
@@ -63,7 +64,8 @@ const appRoutes: Routes = [
     LoginComponent,
     ProfileComponent,
     AdminRootComponent,
-    ListUsersComponent
+    ListUsersComponent,
+    ProfileModifComponent
   ],
 
   imports: [
