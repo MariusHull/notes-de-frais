@@ -28,6 +28,9 @@ import { NoteModifComponent } from './note-modif/note-modif.component';
 import { LogPageComponent } from './log-page/log-page.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
+import { AdminRootComponent } from './admin-root/admin-root.component';
+import { ListUsersComponent } from './list-users/list-users.component';
 
 
 
@@ -57,7 +60,10 @@ const appRoutes: Routes = [
     NoteModifComponent,
     LogPageComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    ProfileComponent,
+    AdminRootComponent,
+    ListUsersComponent
   ],
 
   imports: [

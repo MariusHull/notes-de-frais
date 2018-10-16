@@ -8,15 +8,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/home"> <span class="glyphicon glyphicon-piggy-bank" aria-hidden="true"></span> NDF APP</a>
+      <a class="navbar-brand" routerLink="/home"> <span class="glyphicon glyphicon-piggy-bank" aria-hidden="true"></span> NDF APP</a>
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li> <a routerLink="/home" routerLinkActive="yes"> Home </a></li>
-        <li> <a routerLink="/list" routerLinkActive="yes"> Liste des Notes </a></li>
-        <li> <a routerLink="/newn" routerLinkActive="yes"> Nouvelle note </a></li>
+        <li> <a routerLink="/list" routerLinkActive="yes"> Mes Notes </a></li>
+        <li> <a routerLink="/admin" routerLinkActive="yes"> Interface Administrateur </a></li>
         <!--PENSER A RETIRER LE LIEN EN PROD-->
-        <li> <a routerLink="/essai" routerLinkActive="yes"> PAGE 404 </a></li>
+        <!--li> <a routerLink="/essai" routerLinkActive="yes"> PAGE 404 </a></li-->
         <li *ngIf="!auth.isLoggedIn()"><a routerLink="/login">Sign in</a></li>
         <li *ngIf="auth.isLoggedIn()"><a routerLink="/profile">{{ auth.getUserDetails()?.name }}</a></li>
         <li *ngIf="auth.isLoggedIn()"><a (click)="auth.logout()">Logout</a></li>

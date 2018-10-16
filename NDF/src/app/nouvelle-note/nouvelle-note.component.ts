@@ -17,10 +17,10 @@ export class NouvelleNoteComponent implements OnInit {
       title: "",
       amount: 0,
       currency: "",
-      user: "Marius",
-      moderator: "Marius",
+      user: "", //this.details.name,
+      moderator: "To Assign",
       date: "00-00-0000",
-      status: "En cours de validation",
+      status: "En cours de soumission",
       detail: ""
   };
 
@@ -31,6 +31,7 @@ export class NouvelleNoteComponent implements OnInit {
   
 
   addNote(): void{
+    this.newNote.user = this.details.name;
     this.noteService.addNote(this.newNote).subscribe(note => this.goBack());
     
     
@@ -41,7 +42,8 @@ export class NouvelleNoteComponent implements OnInit {
     private location: Location,
     private auth: AuthentificationService) { }
 
-  ngOnInit() {
+    ngOnInit() { 
+      this.details=this.auth.getUserDetails(); 
     /*
     this.auth.profile().subscribe(user => {
       this.details = user;

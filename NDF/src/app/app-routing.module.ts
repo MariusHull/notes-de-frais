@@ -16,6 +16,10 @@ import { NoteModifComponent } from './note-modif/note-modif.component';
 import { LogPageComponent } from './log-page/log-page.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './profile/profile.component';
+import { AdminRootComponent } from './admin-root/admin-root.component';
+import { ListUsersComponent } from './list-users/list-users.component';
+
 
 
 
@@ -29,13 +33,20 @@ const appRoutes: Routes = [
 
   { path: 'login', component: LoginComponent },
 
+  { path: 'profile', component: ProfileComponent },
+
+  { path: 'admin', component: AdminRootComponent },
+
   { path: 'register', component: RegisterComponent },
+
+  { path: 'listusers', component: ListUsersComponent },
 
   {
     path: 'list',
     component: ListNDFComponent,
     data: { title: 'Liste des Notes' }
   },
+
 
   { path: 'detail/:_id', 
   component: NoteDetailComponent },

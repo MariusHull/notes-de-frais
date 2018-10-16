@@ -79,6 +79,25 @@ export class AuthentificationService {
     }
   }
 
+  
+  public isAdmin(): boolean {
+    const user = this.getUserDetails();
+    if (user.accountType === "Admin") {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  public isAccountManager(): boolean {
+    const user = this.getUserDetails();
+    if (user.accountType ==="Gestionnaire") {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  
 
 //      /\
 //     /  \

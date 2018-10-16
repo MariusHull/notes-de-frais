@@ -22,10 +22,13 @@ require('./models/db');
 // [SH] Bring in the Passport config after model is defined
 require('./config/passport');
 
+/* First attempt to connect to a DB, later removed 
+due to the implementation of athentification
+
 mongoose.connect('mongodb://localhost/note')
   .then(() =>  console.log('connection successful'))
   .catch((err) => console.error(err));
-
+*/
 
 
 //Declaration of all the routers from /routes folder  
