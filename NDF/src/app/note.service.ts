@@ -33,6 +33,11 @@ export class NoteService {
     return this.http.get<Note>(url);
     }
 
+  getNotesUser (userId: string): Observable<Note[]> {
+    const url = `${this.notesUrl}/getUserNotes/${userId}`;
+    return this.http.get<Note[]>(url);
+    }
+
   addNote(note: Note): Observable<Note> {
     return this.http.post<Note>(this.notesUrl, note, httpOptions)
     .pipe(

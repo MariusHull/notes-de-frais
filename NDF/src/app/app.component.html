@@ -12,12 +12,13 @@
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li> <a routerLink="/list" routerLinkActive="yes"> Mes Notes </a></li>
+        <li> <a routerLink="/list/{{ auth.getUserDetails()?.name }}/{{ auth.getUserDetails()?._id }}" routerLinkActive="yes"> Mes Notes </a></li>
         <li> <a routerLink="/admin" routerLinkActive="yes"> Interface Administrateur </a></li>
         <!--PENSER A RETIRER LE LIEN EN PROD-->
         <!--li> <a routerLink="/essai" routerLinkActive="yes"> PAGE 404 </a></li-->
         <li *ngIf="!auth.isLoggedIn()"><a routerLink="/login">Sign in</a></li>
-        <li *ngIf="auth.isLoggedIn()"><a (click)="auth.logout()">Logout</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
         <li *ngIf="auth.isLoggedIn()" class="dropdown">
           <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             {{ auth.getUserDetails()?.name }}

@@ -42,7 +42,7 @@ const appRoutes: Routes = [
   { path: 'listusers', component: ListUsersComponent },
 
   {
-    path: 'list',
+    path: 'list/:name/:userId',
     component: ListNDFComponent,
     data: { title: 'Liste des Notes' }
   },

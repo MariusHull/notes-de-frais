@@ -4,7 +4,9 @@ export class Note {
     amount: number;
     currency: string;
     user: string;
+    userName: string;
     moderator: string;
+    moderatorName: string;
     date: string;
     status: string;
     detail: string;

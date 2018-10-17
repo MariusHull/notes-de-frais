@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NoteService } from '../note.service';
 import { Note } from '../note';
+import { ActivatedRoute } from '../../../node_modules/@angular/router';
 import { Location } from '@angular/common';
 import { AuthentificationService, UserDetails } from '../authentification.service';
 
@@ -18,7 +19,9 @@ export class NouvelleNoteComponent implements OnInit {
       amount: 0,
       currency: "",
       user: "", //this.details.name,
+      userName: "",
       moderator: "To Assign",
+      moderatorName: "To Assign",
       date: "00-00-0000",
       status: "En cours de soumission",
       detail: ""
@@ -31,7 +34,8 @@ export class NouvelleNoteComponent implements OnInit {
   
 
   addNote(): void{
-    this.newNote.user = this.details.name;
+    this.newNote.user = this.details._id;
+    this.newNote.userName = this.details.name;
     this.noteService.addNote(this.newNote).subscribe(note => this.goBack());
     
     
@@ -40,6 +44,7 @@ export class NouvelleNoteComponent implements OnInit {
 
   constructor(private noteService: NoteService,
     private location: Location,
+    private route: ActivatedRoute,
     private auth: AuthentificationService) { }
 
     ngOnInit() { 
