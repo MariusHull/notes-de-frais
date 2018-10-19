@@ -9,7 +9,9 @@ import { Router } from '@angular/router';
 export interface UserDetails {
   _id: string;
   email: string;
-  accountType : string;
+  accountType: string;
+  accountManager: string;
+  accountManagerName: string;
   name: string;
   exp: number;
   iat: number;
@@ -23,6 +25,8 @@ export interface TokenPayload {
   email: string;
   password: string;
   accountType : string;
+  accountManager: string;
+  accountManagerName: string;
   name?: string;
 }
 
@@ -82,7 +86,7 @@ export class AuthentificationService {
   
   public isAdmin(): boolean {
     const user = this.getUserDetails();
-    if (user.accountType === "Admin") {
+    if (user.accountType === "Administrateur") {
       return true;
     } else {
       return false;
@@ -91,7 +95,7 @@ export class AuthentificationService {
 
   public isAccountManager(): boolean {
     const user = this.getUserDetails();
-    if (user.accountType ==="Gestionnaire") {
+    if (user.accountType === "Gestionnaire" || user.accountType === "Administrateur") {
       return true;
     } else {
       return false;

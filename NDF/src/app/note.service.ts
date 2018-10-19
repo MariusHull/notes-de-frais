@@ -49,7 +49,7 @@ export class NoteService {
 
   deleteNote(note: Note): Observable<Note> {
     const url = `${this.notesUrl}/${note._id}`;
-    return this.http.put<Note>(url, note, httpOptions)
+    return this.http.delete<Note>(url, httpOptions)
     .pipe(
       tap((note: Note) => window.alert("La note : " + note.title + " à bien été supprimée.")),
       catchError(this.handleError<Note>('deleteNote'))
@@ -67,6 +67,8 @@ export class NoteService {
 
   }
 
+
+  
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
  

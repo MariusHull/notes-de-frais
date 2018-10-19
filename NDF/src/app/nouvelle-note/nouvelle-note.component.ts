@@ -23,7 +23,7 @@ export class NouvelleNoteComponent implements OnInit {
       moderator: "To Assign",
       moderatorName: "To Assign",
       date: "00-00-0000",
-      status: "En cours de soumission",
+      status: "Non soumise",
       detail: ""
   };
 

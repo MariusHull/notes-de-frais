@@ -11,7 +11,9 @@ export class LoginComponent implements OnInit {
   credentials: TokenPayload = {
     email: '',
     password: '',
-    accountType: ''
+    accountType: '',
+    accountManager: '',
+    accountManagerName: '',
   };
 
   constructor(private auth: AuthentificationService, private router: Router) { }

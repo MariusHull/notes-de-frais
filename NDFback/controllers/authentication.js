@@ -20,7 +20,9 @@ module.exports.register = function(req, res) {
   
     user.name = req.body.name;
     user.email = req.body.email;
-    user.accountType = "Utilisateur Standard"
+    user.accountType = "Utilisateur Standard";
+    user.accountManager = '';
+    user.accountManagerName = '';
   
     user.setPassword(req.body.password);
   

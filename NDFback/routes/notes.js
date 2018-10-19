@@ -25,7 +25,7 @@ router.get('/:_id', function(req, res, next) {
   });
 });
 
-/* GET SINGLE PRODUCT BY ID */
+/* GET NOTES FROM ONLY ONE USER */
 router.get('/getUserNotes/:userId', function(req, res, next) {
   Note.find({user: req.params.userId}, function (err, post) {
     if (err) return next(err);
@@ -33,6 +33,13 @@ router.get('/getUserNotes/:userId', function(req, res, next) {
   });
 });
 
+/* GET NOTES FROM ONLY ONE USER */
+router.get('/getUserNotesState/:userId/:status', function(req, res, next) {
+  Note.find({user: req.params.userId}, {status: req.params.status}, function (err, post) {
+    if (err) return next(err);
+    res.json(post);
+  });
+});
 
 
 /* SAVE PRODUCT */

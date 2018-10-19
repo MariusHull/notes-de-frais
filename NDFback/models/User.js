@@ -30,6 +30,8 @@ var userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    accountManager: String,
+    accountManagerName: String,
     hash: String,
     salt: String
 });

@@ -12,7 +12,9 @@ export class RegisterComponent implements OnInit {
     email: '',
     name: '',
     password: '',
-    accountType : ''
+    accountType : '',
+    accountManager: '',
+    accountManagerName: ''
   };
 
   constructor(private auth: AuthentificationService, private router: Router) {}

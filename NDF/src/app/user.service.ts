@@ -23,6 +23,19 @@ export class UserService {
     getUsers (): Observable<User[]> {
 
       return this.http.get<User[]>(this.usersUrl)
+    }
+    "getUsersWithFields/:name/:_id/:accountype"
+
+    /**Get only one user based on his ID */
+    getNote (_id: string): Observable<Note> {
+      const url = `${this.usersUrl}/${_id}`;
+      return this.http.get<Note>(url);
+      }
+
+    /** Get several users based on fields */  
+    getUsersWithFields (userName:string, accountType: String, _id: string): Observable<Note[]> {
+      const url = `${this.usersUrl}/getUsersWithFields/${name}/${_id}/${accountType}`;
+      return this.http.get<Note[]>(url);
       }
 
   constructor(private http: HttpClient) { }
