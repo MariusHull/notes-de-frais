@@ -16,6 +16,10 @@ export class ProfileComponent implements OnInit {
     private location: Location,
     private auth: AuthentificationService) { }
 
+    hasAccMan(): boolean {
+        return this.details.accountManagerName!==""
+    }
+
     ngOnInit() { 
       this.details=this.auth.getUserDetails();  
       /*this.auth.profile().subscribe(user => {

@@ -6,12 +6,17 @@ import{ AuthGuardService } from'./../auth-guard.service';
 //Components import
 import { ListUsersComponent } from './list-users/list-users.component';
 import { AdminRootComponent } from './admin-root/admin-root.component';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 
 const routes: Routes = [
-  { path: 'listusers', component: ListUsersComponent, canActivate: [AuthGuardService] },
   
-  { path: 'admin', component: AdminRootComponent, canActivate: [AuthGuardService] }
+  
+  { path: 'admin', component: AdminRootComponent, canActivate: [AuthGuardService],
+  children: [
+    { path: 'listusers', component: ListUsersComponent, canActivate: [AuthGuardService] },
+    { path: 'userDetail/:_id', component: UserDetailComponent, canActivate: [AuthGuardService] }
+  ] }
 
 ];
 

@@ -1,3 +1,4 @@
+// The note class : has the user and account manager IDs and names.
 export class Note {
     _id: string;
     title: string;

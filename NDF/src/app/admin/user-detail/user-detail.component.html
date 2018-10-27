@@ -1,0 +1,36 @@
+
+<div *ngIf="user"  class="panel panel-default">
+  <div class="panel-heading">
+    <h1 class="panel-title">Utilisateur : {{user.name}}</h1>
+  </div>
+  <div class="panel-body">
+    <h3>Adresse Mail : </h3> <h4>{{ user.email }}</h4>
+
+    <h3>Type de compte : </h3> <h4>{{ user.accountType }}</h4>
+
+    <h3>Gestionnaire assigné : </h3> <h4 *ngIf="hasAccMan()">{{ user.accountManagerName }}</h4> <h4 *ngIf="!hasAccMan()">Pas de gestionnaire assigné</h4>
+  </div>
+
+  <div class="panel-footer">   
+  
+
+    <div class="dropdown">
+
+      <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Changer le type de compte <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <li> <a (click)="updateAccountType('Administrateur')"> Administrateur </a></li>
+        <li> <a (click)="updateAccountType('Gestionnaire')"> Gestionnaire </a></li>
+        <li> <a (click)="updateAccountType('Utilisateur standard')"> Utilisateur standard </a></li>
+      </ul>
+      &nbsp;
+      <button *ngIf='!hasAccMan()' type="button" class="btn btn-primary">
+        <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> Assigner un gestionnaire
+      </button>
+    </div>
+
+
+  </div>
+
+</div>

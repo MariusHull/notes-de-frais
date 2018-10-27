@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminRootComponent } from'./admin-root/admin-root.component';
 import { ListUsersComponent } from'./list-users/list-users.component';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 @NgModule({
   imports: [
@@ -12,7 +13,8 @@ import { ListUsersComponent } from'./list-users/list-users.component';
   ],
   declarations: [
     AdminRootComponent,
-    ListUsersComponent
+    ListUsersComponent,
+    UserDetailComponent
   ]
 })
 export class AdminModule { }

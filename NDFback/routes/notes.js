@@ -42,7 +42,7 @@ router.get('/getUserNotesState/:userId/:status', function(req, res, next) {
 });
 
 
-/* SAVE PRODUCT */
+/* SAVE note */
 router.post('/', function(req, res, next) {
   Note.create(req.body, function (err, post) {
     if (err) return next(err);
@@ -50,7 +50,7 @@ router.post('/', function(req, res, next) {
   });
 });
 
-/* UPDATE PRODUCT */
+/* UPDATE note */
 router.put('/:id', function(req, res, next) {
   Note.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
     if (err) return next(err);
@@ -58,7 +58,7 @@ router.put('/:id', function(req, res, next) {
   });
 });
 
-/* DELETE PRODUCT */
+/* DELETE note */
 router.delete('/:id', function(req, res, next) {
   Note.findByIdAndRemove(req.params.id, req.body, function (err, post) {
     if (err) return next(err);

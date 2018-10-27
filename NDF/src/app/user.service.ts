@@ -17,6 +17,7 @@ const httpOptions = {
 })
 export class UserService {
 
+  // Adress to access the back
   private usersUrl: string = 'http://localhost:3000/users';
 
     /** GET users from the server */
@@ -24,19 +25,48 @@ export class UserService {
 
       return this.http.get<User[]>(this.usersUrl)
     }
-    "getUsersWithFields/:name/:_id/:accountype"
+    
 
     /**Get only one user based on his ID */
-    getNote (_id: string): Observable<Note> {
+    getUser (_id: string): Observable<User> {
       const url = `${this.usersUrl}/${_id}`;
-      return this.http.get<Note>(url);
-      }
+      return this.http.get<User>(url);
+    }
 
-    /** Get several users based on fields */  
-    getUsersWithFields (userName:string, accountType: String, _id: string): Observable<Note[]> {
-      const url = `${this.usersUrl}/getUsersWithFields/${name}/${_id}/${accountType}`;
-      return this.http.get<Note[]>(url);
-      }
+      // Updates a user (excepted its ID)
+  updateUser(user: User): Observable<User> {
+    const url = `${this.usersUrl}/${user._id}`;
+    return this.http.put<User>(url, user, httpOptions)
+    .pipe(
+      tap((note: Note) => window.alert("Le type du compte à bien été modifié.")),
+      catchError(this.handleError<User>('updateUser'))
+    )
+
+  }
+
+
+
+    // Error Handler
+  private handleError<T> (operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+   
+      // TODO: send the error to remote logging infrastructure
+      console.error(error); // log to console instead
+   
+      // TODO: better job of transforming error for user consumption
+      console.log(`${operation} failed: ${error.message}`);
+   
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
+  }
+
+
+  /** Get several users based on fields */  
+  getUsersWithFields (userName:string, accountType: String, _id: string): Observable<Note[]> {
+    const url = `${this.usersUrl}/getUsersWithFields/${name}/${_id}/${accountType}`;
+    return this.http.get<Note[]>(url);
+  }
 
   constructor(private http: HttpClient) { }
 }

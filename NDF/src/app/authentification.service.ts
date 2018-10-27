@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
 
-
+// The user details that will be sent to the components requiring it
 export interface UserDetails {
   _id: string;
   email: string;
@@ -17,10 +17,12 @@ export interface UserDetails {
   iat: number;
 }
 
+// A string to store the token when receiving it
 interface TokenResponse {
   token: string;
 }
 
+// All the informations carried by the token
 export interface TokenPayload {
   email: string;
   password: string;
@@ -45,7 +47,7 @@ export class AuthentificationService {
     this.token = token;
   }
 
-  //Method to get the token every time it's required
+  //Method to get the token every time it's required (for instance for any component)
   private getToken(): string {
     if (!this.token) {
       this.token = localStorage.getItem('mean-token');
@@ -83,7 +85,7 @@ export class AuthentificationService {
     }
   }
 
-  
+  // Returns true if the user is an Admin (Auth Guard purpose)
   public isAdmin(): boolean {
     const user = this.getUserDetails();
     if (user.accountType === "Administrateur") {
@@ -93,6 +95,7 @@ export class AuthentificationService {
     }
   }
 
+  // Returns true if the user is an Account Manager (Auth Guard purpose)
   public isAccountManager(): boolean {
     const user = this.getUserDetails();
     if (user.accountType === "Gestionnaire" || user.accountType === "Administrateur") {
