@@ -1,9 +1,17 @@
 
 
+<div>  
+  <h4>Ajouter une nouvelle note de frais : 
+    <a routerLink="/newn"> 
+      <button type="button" class="btn btn-primary">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter
+      </button>
+    </a> </h4>
+</div>
 
 <div class="panel panel-default">
     <div class="panel-heading">
-      <h3 class="panel-title">Mes notes de frais</h3>
+      <h2 class="panel-title">Mes notes de frais</h2>
     </div>
 
       <table class="table table-striped">
@@ -12,7 +20,8 @@
           <th>Id</th>
           <th>Date</th>
           <th>Montant</th>
-          <th>Devise</th>  
+          <th>Devise</th>
+          <th>Etat</th>
         </tr>
 
         <tr class="notelist"
@@ -22,6 +31,7 @@
           <td>{{note.date}}</td>
           <td>{{note.amount}}</td>
           <td>{{note.currency}}</td>
+          <td>{{note.status}}</td>
         </tr>
       </table>
 

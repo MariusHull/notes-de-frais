@@ -1,0 +1,26 @@
+
+  
+  <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2 class="panel-title">Utilisateurs</h2>
+      </div>
+  
+        <table class="table table-striped">
+          <tr>
+            <th>Nom complet</th>
+            <th>Adresse Mail</th>
+            <th>Type d'utilisateur</th>
+          </tr>
+  
+          <tr class="notelist"
+            *ngFor="let user of users">
+            <td><a routerLink="/admin/userDetail/{{user._id}}">{{user.name}}</a></td>
+            <td>{{user.email}}</td>
+            <td>{{user.accountType}}</td>
+          </tr>
+        </table>
+  
+  
+  
+    </div>
+  

@@ -1,10 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NoteService } from '../note.service';
+import { ActivatedRoute } from '@angular/router';
+import { AuthentificationService, UserDetails } from '../authentification.service';
 
 
 //Import of the mock NDF : 
 //import { NOTES } from '../mock-notes';
 import { Note } from '../note';
+import { User } from '../user';
 
 
 @Component({
@@ -13,17 +16,20 @@ import { Note } from '../note';
   styleUrls: ['./list-ndf.component.css']
 })
 export class ListNDFComponent implements OnInit {
+  details: UserDetails;
   notes: Note[];
 
-  getNotes(): void {
-    this.noteService.getNotes()
+  getNotesUser(userId: string): void {
+    this.noteService.getNotesUser(userId)
     .subscribe(notes => this.notes= notes);
   }
 
-  constructor(private noteService: NoteService){ }
+  constructor(private noteService: NoteService,
+    private route: ActivatedRoute,
+    private auth: AuthentificationService){ }
 
   ngOnInit() {
-    this.getNotes();
+    this.getNotesUser(this.route.snapshot.params.userId);
   }
 
 }

@@ -1,0 +1,5 @@
+.table-striped tr:hover {
+    color: rgb(0, 0, 0);
+    background-color: rgb(159, 204, 162);
+    left: .1em;
+  }

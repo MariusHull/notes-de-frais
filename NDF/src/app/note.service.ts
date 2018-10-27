@@ -28,11 +28,19 @@ export class NoteService {
   return this.http.get<Note[]>(this.notesUrl)
   }
 
+  // Gets a single note by ID
   getNote (id: string): Observable<Note> {
     const url = `${this.notesUrl}/${id}`;
     return this.http.get<Note>(url);
     }
 
+  // Gets only the notes of one user based on his ID
+  getNotesUser (userId: string): Observable<Note[]> {
+    const url = `${this.notesUrl}/getUserNotes/${userId}`;
+    return this.http.get<Note[]>(url);
+    }
+
+  // Adding a new note
   addNote(note: Note): Observable<Note> {
     return this.http.post<Note>(this.notesUrl, note, httpOptions)
     .pipe(
@@ -42,9 +50,10 @@ export class NoteService {
 
   }
 
+  // Totally deletes a note from the back
   deleteNote(note: Note): Observable<Note> {
     const url = `${this.notesUrl}/${note._id}`;
-    return this.http.put<Note>(url, note, httpOptions)
+    return this.http.delete<Note>(url, httpOptions)
     .pipe(
       tap((note: Note) => window.alert("La note : " + note.title + " à bien été supprimée.")),
       catchError(this.handleError<Note>('deleteNote'))
@@ -52,6 +61,7 @@ export class NoteService {
 
   }
 
+  // Updates a note (excepted its ID)
   updateNote(note: Note): Observable<Note> {
     const url = `${this.notesUrl}/${note._id}`;
     return this.http.put<Note>(url, note, httpOptions)
@@ -62,6 +72,8 @@ export class NoteService {
 
   }
 
+
+  // Error Handler
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
  

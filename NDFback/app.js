@@ -2,15 +2,33 @@ var createError = require('http-errors');
 var express = require('express');
 const bodyParser = require('body-parser');
 var path = require('path');
-var cookieParser = require('cookie-parser');
+//var favicon = require('serve-favicon');
 var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var passport = require('passport');
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
+
+//      /\
+//     /  \
+//    / || \
+//   /  ||  \
+//  /   ||   \
+// /          \
+// ------------
+//A REVOIR
+// [SH] Bring in the data model
+require('./models/db');
+// [SH] Bring in the Passport config after model is defined
+require('./config/passport');
+
+/* First attempt to connect to a DB, later removed 
+due to the implementation of athentification
 
 mongoose.connect('mongodb://localhost/note')
   .then(() =>  console.log('connection successful'))
   .catch((err) => console.error(err));
-
+*/
 
 
 //Declaration of all the routers from /routes folder  
@@ -48,6 +66,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+// [SH] Initialise Passport before using the route middleware
+app.use(passport.initialize());
+
+
 //Utilization of all routers previously declared
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -58,7 +80,13 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
-
+// [SH] Catch unauthorised errors
+app.use(function (err, req, res, next) {
+  if (err.name === 'UnauthorizedError') {
+    res.status(401);
+    res.json({"message" : err.name + ": " + err.message});
+  }
+});
 
 
 

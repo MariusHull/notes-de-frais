@@ -26,6 +26,14 @@ import { NoteDetailComponent } from './note-detail/note-detail.component';
 import { NouvelleNoteComponent } from './nouvelle-note/nouvelle-note.component';
 import { NoteModifComponent } from './note-modif/note-modif.component';
 import { LogPageComponent } from './log-page/log-page.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
+//import { AdminRootComponent } from './admin-root/admin-root.component';
+//import { ListUsersComponent } from './list-users/list-users.component';
+import { ProfileModifComponent } from './profile-modif/profile-modif.component';
+import { AccountManagerRootComponent } from './account-manager-root/account-manager-root.component';
+import { AdminModule } from './admin/admin.module';
 
 
 
@@ -53,14 +61,21 @@ const appRoutes: Routes = [
     NoteDetailComponent,
     NouvelleNoteComponent,
     NoteModifComponent,
-    LogPageComponent
+    LogPageComponent,
+    RegisterComponent,
+    LoginComponent,
+    ProfileComponent,
+    //AdminRootComponent, (in the admin module)
+    //ListUsersComponent, (same)
+    ProfileModifComponent,
+    AccountManagerRootComponent
   ],
 
   imports: [
-    AppRoutingModule,
     BrowserModule,
     FormsModule, 
-    HttpClientModule, 
+    HttpClientModule, AdminModule, 
+    AppRoutingModule,
 
 //      /\
 //     /  \
