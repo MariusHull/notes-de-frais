@@ -25,12 +25,38 @@
         <li> <a (click)="updateAccountType('Utilisateur standard')"> Utilisateur standard </a></li>
       </ul>
       &nbsp;
-      <button *ngIf='!hasAccMan()' type="button" class="btn btn-primary">
+      <button *ngIf='!hasAccMan()' (click)="chooseAccMan()" type="button" class="btn btn-primary">
         <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> Assigner un gestionnaire
       </button>
     </div>
 
 
   </div>
+
+</div>
+
+<h3 *ngIf='choosing'>Choisissez le gestionnaire : </h3>
+
+<div *ngIf='choosing' class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title">Gestionnaires</h2>
+  </div>
+
+    <table class="table table-striped">
+      <tr>
+        <th>Nom complet</th>
+        <th>Adresse Mail</th>
+        <th>Type d'utilisateur</th>
+      </tr>
+
+      <tr class="notelist"
+        *ngFor="let accMan of accMans">
+        <td><a (click)="chosenAccMan(accMan)">{{accMan.name}}</a></td>
+        <td>{{accMan.email}}</td>
+        <td>{{accMan.accountType}}</td>
+      </tr>
+    </table>
+ 
+
 
 </div>

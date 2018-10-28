@@ -26,6 +26,10 @@ export class UserService {
       return this.http.get<User[]>(this.usersUrl)
     }
     
+    getAccManagers (): Observable<User[]> {
+      const url = this.usersUrl+'/getAccMans/Gestionnaire' 
+      return this.http.get<User[]>(url);
+    }
 
     /**Get only one user based on his ID */
     getUser (_id: string): Observable<User> {
@@ -67,6 +71,8 @@ export class UserService {
     const url = `${this.usersUrl}/getUsersWithFields/${name}/${_id}/${accountType}`;
     return this.http.get<Note[]>(url);
   }
+
+
 
   constructor(private http: HttpClient) { }
 }
