@@ -17,7 +17,6 @@
       <table class="table table-striped">
         <tr>
           <th>Motif</th>
-          <th>Id</th>
           <th>Date</th>
           <th>Montant</th>
           <th>Devise</th>
@@ -27,7 +26,6 @@
         <tr class="notelist"
           *ngFor="let note of notes">
           <td><a routerLink="/detail/{{note._id}}">{{note.title}}</a></td>
-          <td>{{note._id}}</td>
           <td>{{note.date}}</td>
           <td>{{note.amount}}</td>
           <td>{{note.currency}}</td>
