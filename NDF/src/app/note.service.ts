@@ -38,7 +38,16 @@ export class NoteService {
   getNotesUser (userId: string): Observable<Note[]> {
     const url = `${this.notesUrl}/getUserNotes/${userId}`;
     return this.http.get<Note[]>(url);
-    }
+  }
+
+
+  // Gets only the notes of one user based on his ID
+  getNotesOfAccMan (accManId: string): Observable<Note[]> {
+    const url = `${this.notesUrl}/getAccManNotes/${accManId}`;
+    return this.http.get<Note[]>(url);
+  }
+
+
 
   // Adding a new note
   addNote(note: Note): Observable<Note> {

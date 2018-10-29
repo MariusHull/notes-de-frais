@@ -33,6 +33,14 @@ router.get('/getUserNotes/:userId', function(req, res, next) {
   });
 });
 
+/* GET NOTES FROM ONLY ONE ACCOUNT MANAGER */
+router.get('/getAccManNotes/:accManId', function(req, res, next) {
+  Note.find({moderator: req.params.accManId, status: 'Soumise'}, function (err, post) {
+    if (err) return next(err);
+    res.json(post);
+  });
+});
+
 /* GET NOTES FROM ONLY ONE USER */
 router.get('/getUserNotesState/:userId/:status', function(req, res, next) {
   Note.find({user: req.params.userId}, {status: req.params.status}, function (err, post) {
@@ -40,6 +48,7 @@ router.get('/getUserNotesState/:userId/:status', function(req, res, next) {
     res.json(post);
   });
 });
+
 
 
 /* SAVE note */

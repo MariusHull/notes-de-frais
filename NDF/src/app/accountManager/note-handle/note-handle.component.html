@@ -1,0 +1,36 @@
+<div *ngIf="note"  class="panel panel-default">
+  <div class="panel-heading">
+    <h1 class="panel-title">Facture reçue le {{note.date}}</h1>
+  </div>
+  <div class="panel-body">
+    <h1> {{note.title}} </h1>
+    <h3>Etat de la note : {{note.status}}</h3>
+    <h3>Montant : {{note.amount}} {{note.currency}}</h3>
+    <h4> Note de l'utilisateur {{note.userName}}</h4>
+
+    
+  </div>
+
+  <ul *ngIf="note.detail" class="list-group">
+    <li class="list-group-item">{{note.detail}}</li>
+  </ul>
+
+  <div class="panel-footer">
+    <button type="button" class="btn btn-primary" (click)="askDetail()"> Demander des détails 
+       <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> 
+    </button>
+      &nbsp;
+    <button *ngIf="true" type="button" class="btn btn-danger"
+    (click)="refuseNote()"> Refuser la note 
+      <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 
+    </button>
+    &nbsp;
+    <button *ngIf="true" type="button" class="btn btn-success"
+    (click)="acceptNote()"> Valider la note 
+        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+    </button>
+
+  </div>
+</div>
+
+

@@ -1,0 +1,34 @@
+
+<div>  
+  <h4>Note de frais à traiter : </h4>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">En cours : </h2>
+    </div>
+
+      <table class="table table-striped">
+        <tr>
+          <th>Motif</th>
+          <th>Utilisateur</th>
+          <th>Date</th>
+          <th>Montant</th>
+          <th>Devise</th>
+          <th>Etat</th>
+        </tr>
+
+        <tr class="notelist"
+          *ngFor="let note of notes">
+          <td><a routerLink="/gestio/notes/{{note._id}}">{{note.title}}</a></td>
+          <td>{{note.userName}}</td>
+          <td>{{note.date}}</td>
+          <td>{{note.amount}}</td>
+          <td>{{note.currency}}</td>
+          <td>{{note.status}}</td>
+        </tr>
+      </table>
+
+
+
+  </div>

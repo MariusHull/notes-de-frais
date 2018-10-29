@@ -2,22 +2,22 @@
 
   <div class="row">
     <div class="col-md-6">
-      <h1>Register</h1>
-      <p class="lead">Already a member? Please <a routerLink="/login">log in</a> instead.</p>
+      <h1>Inscription</h1>
+      <p class="lead">Déjà membre ? <a routerLink="/login">Identifiez-vous !</a></p>
       <form (submit)="register()">
         <div class="form-group">
-          <label for="name">Full name</label>
-          <input type="text" class="form-control" name="name" placeholder="Enter your name" [(ngModel)]="credentials.name">
+          <label for="name">Nom complet</label>
+          <input type="text" class="form-control" name="name" placeholder="Entrez votre nom" [(ngModel)]="credentials.name">
         </div>
         <div class="form-group">
-          <label for="email">Email address</label>
-          <input type="email" class="form-control" name="email" placeholder="Enter email" [(ngModel)]="credentials.email">
+          <label for="email">Adresse mail</label>
+          <input type="email" class="form-control" name="email" placeholder="Entrez votre mail" [(ngModel)]="credentials.email">
         </div>
         <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="credentials.password">
+          <label for="password">Mot de passe</label>
+          <input type="password" class="form-control" name="password" placeholder="Entrez votre mot de passe" [(ngModel)]="credentials.password">
         </div>
-        <button type="submit" class="btn btn-default">Register!</button>
+        <button type="submit" class="btn btn-default">S'inscrire!</button>
       </form>
     </div>
   </div>

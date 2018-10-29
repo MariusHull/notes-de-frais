@@ -59,7 +59,7 @@ export class AuthentificationService {
   public logout(): void {
     this.token = '';
     window.localStorage.removeItem('mean-token');
-    this.router.navigateByUrl('/');
+    this.router.navigateByUrl('/login');
   }
 
   //Returns the user's details if one is logged in

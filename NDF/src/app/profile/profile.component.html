@@ -9,7 +9,7 @@
       
 
       <div class="panel-body">
-          <h3>Mon gestionnaire : </h3> <h4 *ngIf="!hasAccMan()">{{ details?.accountManagerName }}</h4> <h4 *ngIf="hasAccMan()">Vous n'avez pas encore de gestionnaire</h4>
+          <h3>Mon gestionnaire : </h3> <h4 *ngIf="hasAccMan()">{{ user?.accountManagerName }}</h4> <h4 *ngIf="!hasAccMan()">Vous n'avez pas encore de gestionnaire</h4>
 
         <h3>Adresse Mail : </h3> <h4>{{ details?.email }}</h4>
 
