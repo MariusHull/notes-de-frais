@@ -24,7 +24,8 @@ export class NouvelleNoteComponent implements OnInit {
       moderatorName: "To Assign",
       date: "00-00-0000",
       status: "Non soumise",
-      detail: ""
+      detail: "",
+      motif:""
   };
 
   goBack(): void {

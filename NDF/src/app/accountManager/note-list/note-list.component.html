@@ -1,22 +1,17 @@
 
-
 <div>  
-  <h4>Ajouter une nouvelle note de frais : 
-    <a routerLink="/newn"> 
-      <button type="button" class="btn btn-primary">
-        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter
-      </button>
-    </a> </h4>
+  <h4>Note de frais à traiter : </h4>
 </div>
 
 <div class="panel panel-default">
     <div class="panel-heading">
-      <h2 class="panel-title">Mes notes de frais</h2>
+      <h2 class="panel-title">En cours : </h2>
     </div>
 
       <table class="table table-striped">
         <tr>
           <th>Motif</th>
+          <th>Utilisateur</th>
           <th>Date</th>
           <th>Montant</th>
           <th>Devise</th>
@@ -25,7 +20,8 @@
 
         <tr class="notelist"
           *ngFor="let note of notes">
-          <td><a routerLink="/detail/{{note._id}}">{{note.title}}</a></td>
+          <td><a routerLink="/gestio/{{ auth.getUserDetails()?._id }}/notes/{{note._id}}">{{note.title}}</a></td>
+          <td>{{note.userName}}</td>
           <td>{{note.date}}</td>
           <td>{{note.amount}}</td>
           <td>{{note.currency}}</td>
@@ -36,7 +32,3 @@
 
 
   </div>
-
-
-
-

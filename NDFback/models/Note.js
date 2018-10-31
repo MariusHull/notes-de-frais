@@ -10,7 +10,8 @@ var NoteSchema = new mongoose.Schema({
   moderatorName: String,
   date: String,
   status: String,
-  detail: String
+  detail: String,
+  motif: String
 });
 
 module.exports = mongoose.model('Note', NoteSchema);

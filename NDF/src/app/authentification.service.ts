@@ -59,7 +59,7 @@ export class AuthentificationService {
   public logout(): void {
     this.token = '';
     window.localStorage.removeItem('mean-token');
-    this.router.navigateByUrl('/');
+    this.router.navigateByUrl('/login');
   }
 
   //Returns the user's details if one is logged in
@@ -98,7 +98,7 @@ export class AuthentificationService {
   // Returns true if the user is an Account Manager (Auth Guard purpose)
   public isAccountManager(): boolean {
     const user = this.getUserDetails();
-    if (user.accountType === "Gestionnaire" || user.accountType === "Administrateur") {
+    if (user.accountType === "Gestionnaire") {
       return true;
     } else {
       return false;

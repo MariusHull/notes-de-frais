@@ -32,8 +32,9 @@ import { ProfileComponent } from './profile/profile.component';
 //import { AdminRootComponent } from './admin-root/admin-root.component';
 //import { ListUsersComponent } from './list-users/list-users.component';
 import { ProfileModifComponent } from './profile-modif/profile-modif.component';
-import { AccountManagerRootComponent } from './account-manager-root/account-manager-root.component';
+//import { AccountManagerRootComponent } from './accountManager/account-manager-root/account-manager-root.component';
 import { AdminModule } from './admin/admin.module';
+import { AccountManagerModule } from './accountManager/account-manager.module';
 
 
 
@@ -67,15 +68,17 @@ const appRoutes: Routes = [
     ProfileComponent,
     //AdminRootComponent, (in the admin module)
     //ListUsersComponent, (same)
-    ProfileModifComponent,
-    AccountManagerRootComponent
+    ProfileModifComponent
   ],
 
   imports: [
     BrowserModule,
     FormsModule, 
-    HttpClientModule, AdminModule, 
-    AppRoutingModule,
+    HttpClientModule, 
+    AdminModule, 
+    AccountManagerModule,
+    AppRoutingModule, 
+
 
 //      /\
 //     /  \

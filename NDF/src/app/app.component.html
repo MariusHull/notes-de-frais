@@ -13,8 +13,6 @@
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li> <a routerLink="/list/{{ auth.getUserDetails()?.name }}/{{ auth.getUserDetails()?._id }}" routerLinkActive="yes"> Mes Notes </a></li>
-        <li> <a routerLink="/admin" routerLinkActive="yes"> Interface Administrateur </a></li>
         <!--PENSER A RETIRER LE LIEN EN PROD-->
         <!--li> <a routerLink="/essai" routerLinkActive="yes"> PAGE 404 </a></li-->
         <li *ngIf="!auth.isLoggedIn()"><a routerLink="/login">Sign in</a></li>
@@ -26,8 +24,9 @@
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <li> <a routerLink="/admin"> Interface Administrateur </a></li>
-            <li> <a routerLink="/gestio"> Interface Gestionnaire </a></li>
+            <li> <a *ngIf="auth.isLoggedIn()" routerLink="/list/{{ auth.getUserDetails()?.name }}/{{ auth.getUserDetails()?._id }}" routerLinkActive="yes"> Mes Notes </a></li>
+            <li> <a *ngIf="auth.isAdmin()" routerLink="/admin"> Interface Administrateur </a></li>
+            <li> <a *ngIf="auth.isAccountManager()" routerLink="/gestio"> Interface Gestionnaire </a></li>
             <li> <a routerLink="/profile"> Réglages du compte </a></li>
             <li class="divider"></li>
             <li><a href="#" (click)="auth.logout()">Log Out</a></li>

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {Routes} from '@angular/router';
+import { Routes } from '@angular/router';
 import { AuthGuardService } from './auth-guard.service';
 import { AuthGuardAdminService } from './auth-guard-admin.service';
 import { AuthGuardAccountManagerService } from './auth-guard-account-manager.service';
@@ -21,7 +21,7 @@ import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 //import { AdminRootComponent } from './admin-root/admin-root.component';
 //import { ListUsersComponent } from './list-users/list-users.component';
-import { AccountManagerRootComponent } from './account-manager-root/account-manager-root.component';
+//import { AccountManagerRootComponent } from './account-manager-root/account-manager-root.component';
 
 
 
@@ -43,7 +43,7 @@ const appRoutes: Routes = [
 
   //{ path: 'listusers', component: ListUsersComponent, canActivate: [AuthGuardService] },
 
-  { path: 'gestio', component: AccountManagerRootComponent, canActivate: [AuthGuardAccountManagerService] },
+  //{ path: 'gestio', component: AccountManagerRootComponent, canActivate: [AuthGuardAccountManagerService] },
 
   { path: 'list/:name/:userId', component: ListNDFComponent, data: { title: 'Liste des Notes' }, canActivate: [AuthGuardService] },
 
@@ -51,7 +51,7 @@ const appRoutes: Routes = [
 
   { path: 'modif/:_id', component: NoteModifComponent, canActivate: [AuthGuardService] },
 
-  { path: '', redirectTo: '/home', pathMatch: 'full'},
+  { path: '', redirectTo: '/login', pathMatch: 'full'},
 
   { path: '**', component: NotFoundComponent }
 ];
