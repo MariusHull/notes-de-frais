@@ -37,6 +37,14 @@ router.get('/getAccMans/:type', function(req, res, next) {
   });
 });
 
+// GET users related to the specified account manager
+router.get('/getRelated/:id', function(req, res, next) {
+  User.find({accountManager: req.params.id}, function (err, post) {
+    if (err) return next(err);
+    res.json(post);
+  });
+});
+
 /* UPDATE user */
 router.put('/:id', function(req, res, next) {
   User.findByIdAndUpdate(req.params.id, req.body, function (err, post) {

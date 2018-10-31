@@ -20,7 +20,7 @@
 
         <tr class="notelist"
           *ngFor="let note of notes">
-          <td><a routerLink="/gestio/notes/{{note._id}}">{{note.title}}</a></td>
+          <td><a routerLink="/gestio/{{ auth.getUserDetails()?._id }}/notes/{{note._id}}">{{note.title}}</a></td>
           <td>{{note.userName}}</td>
           <td>{{note.date}}</td>
           <td>{{note.amount}}</td>

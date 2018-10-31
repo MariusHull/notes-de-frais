@@ -98,7 +98,7 @@ export class AuthentificationService {
   // Returns true if the user is an Account Manager (Auth Guard purpose)
   public isAccountManager(): boolean {
     const user = this.getUserDetails();
-    if (user.accountType === "Gestionnaire" || user.accountType === "Administrateur") {
+    if (user.accountType === "Gestionnaire") {
       return true;
     } else {
       return false;

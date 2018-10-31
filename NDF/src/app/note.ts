@@ -11,4 +11,5 @@ export class Note {
     date: string;
     status: string;
     detail: string;
+    motif: string;
 }

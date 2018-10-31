@@ -15,22 +15,33 @@
     <li class="list-group-item">{{note.detail}}</li>
   </ul>
 
-  <div class="panel-footer">
-    <button type="button" class="btn btn-primary" (click)="askDetail()"> Demander des détails 
+  <div class="panel-body">
+    <p>
+    <button type="button" class="btn btn-primary" (click)="askDetails()"> Demander des détails 
        <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> 
     </button>
-      &nbsp;
-    <button *ngIf="true" type="button" class="btn btn-danger"
-    (click)="refuseNote()"> Refuser la note 
-      <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 
-    </button>
-    &nbsp;
-    <button *ngIf="true" type="button" class="btn btn-success"
+    </p>
+    <p class= input-group>
+
+
+              <span class="input-group-btn">
+                  <button *ngIf="true" type="button" class="btn btn-danger"
+                  (click)="refuseNote()"> Refuser la note 
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 
+                  </button>
+              </span>
+              <input required [(ngModel)]="note.motif" type="text" class="form-control" placeholder="Raison du refus">
+
+    </p>
+    <p>
+    <button type="button" class="btn btn-success"
     (click)="acceptNote()"> Valider la note 
         <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
     </button>
+    </p>
 
+
+    
   </div>
 </div>
-
 

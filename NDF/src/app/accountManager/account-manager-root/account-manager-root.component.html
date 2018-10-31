@@ -3,10 +3,8 @@
 <div class="panel panel-default">
   <div class="panel-body">
   <ul class="nav navbar-nav">
-          <li><a href="#">Link</a></li>
-          <li><a href="#">Link</a></li>
-          <li><a routerLink="/admin/listusers">Utilisateurs associés</a></li>
-          <li><a routerLink="/gestio/notes" routerLinkActive="yes"> Notes en attente </a></li>
+          <li><a routerLink="/gestio/{{ auth.getUserDetails()?._id }}/listusers">Utilisateurs associés</a></li>
+          <li><a routerLink="/gestio/{{ auth.getUserDetails()?._id }}/notes" routerLinkActive="yes"> Notes en attente </a></li>
           
   </ul>
 </div>

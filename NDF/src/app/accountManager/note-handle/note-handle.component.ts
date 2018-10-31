@@ -14,6 +14,7 @@ import { User } from '../../user';
 export class NoteHandleComponent implements OnInit {
   user: User;
   note: Note;
+  motif:string;
 
   constructor(private route: ActivatedRoute,
   private noteService: NoteService,
@@ -26,19 +27,28 @@ export class NoteHandleComponent implements OnInit {
       .subscribe(note => this.note=note);
   }
 
-  askdetails(): void {
+  askDetails(): void {
+    if(window.confirm("Etes-vous sur de vouloir demander des détails ? ")){
     this.note.status="Note traitée";
     this.updateNote();
+    this.location.back();
+  }
   }
 
   refuseNote(): void {
+    if(window.confirm("Voulez-vous vraiment refuser cette note ? ")){
     this.note.status="Note refusée";
     this.updateNote();
+    this.location.back();
+  }
   }
 
   acceptNote(): void {
+    if(window.confirm("Voulez-vous vraiment accepter cette note ? ")){
     this.note.status="Note acceptée !";
     this.updateNote();
+    this.location.back();
+  }
   }
 
   updateNote(): void {

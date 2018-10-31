@@ -1,1 +1,20 @@
 
+<h1>Bienvenue sur NDF</h1>
+
+<h3>Les site NDF permet de gérer ses notes de frais en toute simplicité.</h3>
+
+
+
+<div *ngIf="auth.isLoggedIn()">  
+    <h4>Vous êtes connecté. Commencez par ajouter une nouvelle note de frais : 
+      <a routerLink="/newn"> 
+        <button type="button" class="btn btn-primary">
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter
+        </button>
+      </a> </h4>
+  </div>
+
+  <div *ngIf="!auth.isLoggedIn()">  
+    <p class="lead">Vous n'êtes pas connecté. Commencez par <a routerLink="/login">vous connecter</a> ou par vous <a routerLink="/register">vous créer un compte</a> si vous n'en avez pas déjà!
+       </p>
+  </div>

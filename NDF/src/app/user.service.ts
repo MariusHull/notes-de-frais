@@ -31,6 +31,11 @@ export class UserService {
       return this.http.get<User[]>(url);
     }
 
+    getRelatedUsers (id: string): Observable<User[]> {
+      const url = this.usersUrl+`/getRelated/${id}`
+      return this.http.get<User[]>(url);
+    }
+
     /**Get only one user based on his ID */
     getUser (_id: string): Observable<User> {
       const url = `${this.usersUrl}/${_id}`;

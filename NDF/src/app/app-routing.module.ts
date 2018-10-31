@@ -51,7 +51,7 @@ const appRoutes: Routes = [
 
   { path: 'modif/:_id', component: NoteModifComponent, canActivate: [AuthGuardService] },
 
-  { path: '', redirectTo: '/home', pathMatch: 'full'},
+  { path: '', redirectTo: '/login', pathMatch: 'full'},
 
   { path: '**', component: NotFoundComponent }
 ];

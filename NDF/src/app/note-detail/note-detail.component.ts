@@ -46,7 +46,13 @@ export class NoteDetailComponent implements OnInit {
   }
 
   estNonSoumise():boolean {
-    if(this.note.status==="Non soumise"){
+    if(this.note.status==="Non soumise" || this.note.status==="Note traitée"){
+      return true
+    } else{ return false} 
+  }
+
+  estSoumise():boolean {
+    if(this.note.status==="Soumise"){
       return true
     } else{ return false} 
   }
@@ -68,6 +74,18 @@ export class NoteDetailComponent implements OnInit {
       this.noteService.updateNote(this.note)
       .subscribe(note => console.log(note));
     }
+  }
+
+  estAcceptee(): boolean {
+    return this.note.status==="Note acceptée !"
+  }
+
+  estRefusee(): boolean {
+    return this.note.status==="Note refusée"
+  }
+
+  estEnAttente(): boolean {
+    return this.note.status==="Note traitée"
   }
 
   constructor(private route: ActivatedRoute,

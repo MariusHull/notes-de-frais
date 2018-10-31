@@ -7,14 +7,16 @@ import { AuthGuardAccountManagerService } from '../auth-guard-account-manager.se
 import { AccountManagerRootComponent } from './account-manager-root/account-manager-root.component';
 import { NoteListComponent } from './note-list/note-list.component';
 import { NoteHandleComponent } from './note-handle/note-handle.component';
+import { ListUsersComponent } from './list-users/list-users.component';
 
 
 const routes: Routes = [
 
   { path: 'gestio', component: AccountManagerRootComponent, canActivate: [AuthGuardAccountManagerService], 
-children : [
-  { path: 'notes', component: NoteListComponent, canActivate: [AuthGuardAccountManagerService]},
-  { path: 'notes/:id', component: NoteHandleComponent, canActivate: [AuthGuardAccountManagerService]}
+children : [ 
+  { path: ':_id/notes', component: NoteListComponent, canActivate: [AuthGuardAccountManagerService]},
+  { path: ':_id/notes/:id', component: NoteHandleComponent, canActivate: [AuthGuardAccountManagerService]},
+  { path: ':_id/listusers', component: ListUsersComponent, canActivate: [AuthGuardAccountManagerService]}
 ] }
 
 
