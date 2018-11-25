@@ -16,7 +16,8 @@ To run this app, once you've gotten all off the files : (be sure that mongoDB is
 1. Open a terminal and go to the folder of the appliaction : `$cd notes-de-frais/`.
 2. If it is the first time you run the application, you have to import the fisrt base of users implemented to tests needs. Everything is included in the file users.json, which is in the notes-de-frais folder. To install it, just run : `$mongoimport --db NDF --collection users --file users.json`
 3. Go to the NDF/ folder with command : `$cd NDF/`
-4. Run the command `$ng serve --open`
-4. Open another instance of terminal and go to the folder NDFback/ with command `$cd notes-de-frais/NDFback/`
-5. Run the command `$npm start`
-6. Open your browser and navigate to the adress : [http://localhost:4200/home](http://localhost:4200/home)
+4. Run the command `$npm install`
+5. Run the command `$ng serve --open`
+6. Open another instance of terminal and go to the folder NDFback/ with command `$cd notes-de-frais/NDFback/`
+7. Run the command `$npm start`
+8. Open your browser and navigate to the adress : [http://localhost:4200/home](http://localhost:4200/home)
